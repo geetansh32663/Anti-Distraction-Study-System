@@ -1,6 +1,6 @@
 streamlit
 opencv-python
-streamlit-webrtc
+streamlit-webrtc==0.47.1
 tornado
 streamlit-autorefresh
 cv2
