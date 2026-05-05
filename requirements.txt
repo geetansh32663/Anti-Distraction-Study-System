@@ -3,4 +3,4 @@ opencv-python
 streamlit-webrtc
 tornado
 streamlit-autorefresh
-cv2
+opencv-python-headless
