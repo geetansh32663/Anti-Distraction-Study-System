@@ -83,22 +83,23 @@ if st.session_state.is_running:
 
     webrtc_ctx = webrtc_streamer(
         key="example",
-        video_transformer_factory=FaceDetector
+        video_transformer_factory=FaceDetector,
+        rtc_configuration={
+            "iceServers": [
+                {"urls": ["stun:stun.relay.metered.ca:80"]},
+                {
+                    "urls": [
+                        "turn:global.relay.metered.ca:80",
+                        "turn:global.relay.metered.ca:80?transport=tcp",
+                        "turn:global.relay.metered.ca:443",
+                        "turns:global.relay.metered.ca:443?transport=tcp"
+                    ],
+                    "username": "c4816b6fd98531c59b6731ee",
+                    "credential": "iORGIYD6bCo7X6M9"
+                }
+            ]
+        }
     )
-
-    # Focus input
-    if webrtc_ctx.video_transformer:
-        if webrtc_ctx.video_transformer.face_detected:
-            focus_state = "Focused"
-        else:
-            focus_state = "Distracted"
-    else:
-        focus_state = "No Camera"
-
-    # Store data every refresh
-    st.session_state.focus_data.append({
-        "time": elapsed,
-        "state": 1 if focus_state == "Focused" else 0
     })
 
 
