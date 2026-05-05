@@ -1,6 +1,6 @@
 streamlit
 opencv-python
-streamlit-webrtc==0.47.1
-tornado>=6.2
+streamlit-webrtc
+tornado
 streamlit-autorefresh
 cv2
