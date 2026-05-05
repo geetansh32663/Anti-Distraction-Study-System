@@ -100,7 +100,14 @@ if st.session_state.is_running:
             ]
         }
     )
-
+    # Focus input
+    if webrtc_ctx.video_transformer:
+        if webrtc_ctx.video_transformer.face_detected:
+            focus_state = "Focused"
+        else:
+            focus_state = "Distracted"
+    else:
+        focus_state = "No Camera"
 
 # Convert to DataFrame
 df = pd.DataFrame(st.session_state.focus_data)
