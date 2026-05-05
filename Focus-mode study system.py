@@ -100,7 +100,7 @@ if st.session_state.is_running:
             ]
         }
     )
-    })
+    )
 
 
 
